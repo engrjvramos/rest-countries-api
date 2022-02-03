@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
+
 *,
 *::before,
 *::after {
@@ -12,12 +14,54 @@
 	--light-mode-input: hsl(0, 0%, 52%);
 	--light-mode-background: hsl(0, 0%, 98%);
 	--white: hsl(0, 0%, 100%); //Dark Mode Text & Light Mode Elements
+
+	--body-background: hsl(0, 0%, 98%);
+	--header-background: hsl(0, 0%, 100%);
+	--text-color: hsl(200, 15%, 8%);
+	--text-color-2: hsl(0, 0%, 100%);
+	--input-color: hsl(0, 0%, 52%);
+
+	--box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
 }
+
+.dark-theme {
+	--body-background: hsl(207, 26%, 17%);
+	--header-background: hsl(209, 23%, 22%);
+	--text-color: hsl(0, 0%, 100%);
+	--text-color-2: hsl(200, 15%, 8%);
+	--input-color: hsl(0, 0%, 100%);
+}
+
 html {
 	font-size: 62.5%;
 }
 
 body {
+	font-family: 'Nunito Sans', sans-serif;
 	font-size: 1.6rem;
 	min-height: 100vh;
+	background: var(--body-background);
+	color: var(--text-color);
+	display: flex;
+	flex-direction: column;
+}
+
+img {
+	max-width: 100%;
+}
+
+li {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container {
+	max-width: 144rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
 }

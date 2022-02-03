@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>REST Countries API</title>
 
   <!--======= FONT AWESOME =======-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -15,7 +15,65 @@
 </head>
 
 <body>
+  <header>
+    <div class="container">
+      <div class="header-text">
+        <h2>Where in the world?</h2>
+      </div>
+      <div class="theme-btn">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+        <span class="theme-text"></span>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <div class="container">
+      <div class="search-filter-container">
+        <div class="search-container">
+          <input id="search" class="search" type="text" placeholder="Search for a country...">
+          <i class="fas fa-magnifying-glass"></i>
+        </div>
+        <div class="filter">
+          <span>Filter by Region</span>
+          <i class="fas fa-chevron-down"></i>
+          <div class="filter-items">
+            <ul>
+              <li>All</li>
+              <li>Africa</li>
+              <li>Americas</li>
+              <li>Asia</li>
+              <li>Europe</li>
+              <li>Oceania</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="countries-container" id="countries">
+        <h2>Countries loading ...</h2>
+
+
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal__container">
+        <button class="btn-close"><i class="fas fa-arrow-left"></i>Back</button>
+        <div class="content">
+          <div class="content__flag">
+            <img src="https://flagcdn.com/de.svg" alt="">
+          </div>
+          <div class="content__details">
+            <h1 class="country-name">${country.name}</h1>
+            <h4 class="population">Population: <span>${country.population}</span></h4>
+            <h4 class="country-region">Region: <span>${country.region}</span></h4>
+            <h4 class="capital">Capital: <span>${country.capital}</span></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
   <script src="js/script.js"></script>
 </body>
 
