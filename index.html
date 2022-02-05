@@ -12,6 +12,19 @@
 
   <!--======= CSS =======-->
   <link rel="stylesheet" href="css/style.css">
+
+  <!--======= LEAFLET CSS =======-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+
+  <!--======= LEAFLET JS =======-->
+  <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <!--======= JS =======-->
+  <script defer src="js/script.js"></script>
 </head>
 
 <body>
@@ -102,15 +115,18 @@
 
     <div class="modal" id="modal">
       <div class="modal__container">
-        <div class="button-container">
-          <button class="btn-close"><i class="fas fa-arrow-left"></i>Back</button>
-        </div>
-        <div class="content">
+        <div class="content--left">
+          <div class="button-container">
+            <button class="btn-primary close"><i class="fas fa-arrow-left"></i>Back</button>
+          </div>
           <div class="content__flag">
             <img src="" alt="">
           </div>
           <div class="content__details">
           </div>
+        </div>
+        <div class="content--right">
+          <div id="map"></div>
         </div>
       </div>
     </div>
@@ -120,7 +136,7 @@
   </main>
 
 
-  <script src="js/script.js"></script>
+
 </body>
 
 </html>

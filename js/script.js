@@ -56,7 +56,7 @@ setTimeout(showPage, 5000);
 
 const countriesEl = document.getElementById('countries');
 const modal = document.getElementById('modal');
-const closeBtn = document.querySelector('.btn-close');
+const closeBtn = document.querySelector('.close');
 const header = document.getElementById('header');
 
 getCountries();
@@ -90,7 +90,6 @@ function displayCountries(countries) {
 	countries.forEach((country) => {
 		const countryEl = document.createElement('div');
 		const population = country.population.toLocaleString();
-		const locationBtn = document.getElementById('locationBtn');
 
 		countryEl.classList.add('card');
 		countryEl.innerHTML = `
@@ -106,7 +105,7 @@ function displayCountries(countries) {
       `;
 
 		countryEl.addEventListener('click', () => {
-			modal.style.display = 'flex';
+			modal.style.display = 'block';
 			navbar.style.display = 'none';
 			header.style.position = 'fixed';
 			document.body.style.overflow = 'hidden';
@@ -120,8 +119,16 @@ function displayCountries(countries) {
 function showCountryDetails(country) {
 	const modalBody = modal.querySelector('.content__details');
 	const modalImage = modal.querySelector('.content__flag img');
-
 	const population = country.population.toLocaleString();
+
+	const map = L.map('map').setView(country.latlng, 4);
+
+	L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+		attribution:
+			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	}).addTo(map);
+
+	L.marker(country.latlng).addTo(map).bindPopup(`${country.name}`).openPopup();
 
 	modalImage.src = country.flag;
 
@@ -151,7 +158,7 @@ function showCountryDetails(country) {
 closeBtn.addEventListener('click', () => {
 	modal.style.display = 'none';
 	navbar.style.display = 'flex';
-	header.style.position = 'relative';
+	header.style.position = 'static';
 	document.body.style.overflow = 'visible';
 });
 
@@ -159,21 +166,18 @@ document.addEventListener('keydown', (e) => {
 	if (e.key === 'Escape') {
 		modal.style.display = 'none';
 		navbar.style.display = 'flex';
-		header.style.position = 'relative';
+		header.style.position = 'static';
 		document.body.style.overflow = 'visible';
 	}
 });
 
-// const searchContainer = document.querySelector('.search-container');
-const dropdown = document.querySelectorAll('.dropdown');
+const dropdown = document.querySelector('.dropdown');
 const dropdownIcon = document.querySelector('.dropdown__select i');
 const dropdownItems = document.querySelector('.dropdown__content');
 
 const filterEl = document.getElementById('filter');
 
-dropdown.forEach((el) => {
-	el.addEventListener('click', () => el.classList.toggle('active'));
-});
+dropdown.addEventListener('click', () => dropdown.classList.toggle('active'));
 
 const regionItems = filterEl.querySelectorAll('.dropdown__content--item');
 

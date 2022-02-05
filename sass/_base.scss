@@ -82,14 +82,14 @@ a {
 	font-size: 1.6rem;
 	line-height: 1.2;
 	text-align: center;
-	width: 100%;
-	padding: 1rem 0;
-	margin: 1rem 0;
+	color: var(--text-color);
+	padding: 1.3rem 3.2rem;
 	outline: none;
 	background: var(--header-background);
 	border: 2px solid var(--line-color);
+	border-radius: 4px;
 	box-shadow: 0 1rem 1rem -0.8rem #d5d5d5;
-	transition: all 0.3s;
+	transition: all 0.2s;
 	cursor: pointer;
 
 	i {
@@ -99,5 +99,9 @@ a {
 	&:hover {
 		background: var(--input-color-2);
 		border: 2px solid var(--input-color-2);
+	}
+
+	&:active {
+		color: var(--color-primary);
 	}
 }
