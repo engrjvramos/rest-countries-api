@@ -1,14 +1,21 @@
+// SCROLL TO TOP BUTTON
+const scrollTopBtn = document.querySelector('.scrollToTop-btn');
+const navbar = document.getElementById('navbar');
+const sticky = navbar.offsetTop;
+
+window.addEventListener('scroll', () => {
+	scrollTopBtn.classList.toggle('active', window.scrollY > 500);
+	navbar.classList.toggle('sticky', window.scrollY > 90);
+});
+
+scrollTopBtn.addEventListener('click', () => {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+});
+
 // DARK & LIGHT MODE
 const themeBtn = document.querySelector('.theme-btn');
 const themeBtnText = document.querySelector('.theme-text');
-
-themeBtn.addEventListener('click', () => {
-	document.body.classList.toggle('dark-theme');
-	themeBtn.classList.toggle('sun');
-
-	localStorage.setItem('saved-theme', getCurrentTheme());
-	localStorage.setItem('saved-icon', getCurrentIcon());
-});
 
 const getCurrentTheme = () =>
 	document.body.classList.contains('dark-theme') ? 'dark' : 'light';
@@ -25,11 +32,32 @@ if (savedTheme) {
 	themeBtn.classList[savedIcon === 'sun' ? 'add' : 'remove']('sun');
 }
 
+themeBtn.addEventListener('click', () => {
+	document.body.classList.toggle('dark-theme');
+	themeBtn.classList.toggle('sun');
+
+	localStorage.setItem('saved-theme', getCurrentTheme());
+	localStorage.setItem('saved-icon', getCurrentIcon());
+});
+
+// SPINNER
+const loading = document.getElementById('loading');
+const loadingContainer = document.querySelector('.loading-container');
+
+function showPage() {
+	loading.style.display = 'none';
+	loadingContainer.style.display = 'none';
+	countriesEl.style.display = 'grid';
+}
+
+setTimeout(showPage, 5000);
+
 //API CALL
 
 const countriesEl = document.getElementById('countries');
 const modal = document.getElementById('modal');
 const closeBtn = document.querySelector('.btn-close');
+const header = document.getElementById('header');
 
 getCountries();
 
@@ -62,6 +90,7 @@ function displayCountries(countries) {
 	countries.forEach((country) => {
 		const countryEl = document.createElement('div');
 		const population = country.population.toLocaleString();
+		const locationBtn = document.getElementById('locationBtn');
 
 		countryEl.classList.add('card');
 		countryEl.innerHTML = `
@@ -78,6 +107,8 @@ function displayCountries(countries) {
 
 		countryEl.addEventListener('click', () => {
 			modal.style.display = 'flex';
+			navbar.style.display = 'none';
+			header.style.position = 'fixed';
 			document.body.style.overflow = 'hidden';
 			showCountryDetails(country);
 		});
@@ -114,20 +145,21 @@ function showCountryDetails(country) {
 				.join(', ')}</span></p>
     </div>
   </div>
-  <p>Borders:
-     
-  </p>
     `;
 }
 
 closeBtn.addEventListener('click', () => {
 	modal.style.display = 'none';
+	navbar.style.display = 'flex';
+	header.style.position = 'relative';
 	document.body.style.overflow = 'visible';
 });
 
 document.addEventListener('keydown', (e) => {
 	if (e.key === 'Escape') {
 		modal.style.display = 'none';
+		navbar.style.display = 'flex';
+		header.style.position = 'relative';
 		document.body.style.overflow = 'visible';
 	}
 });
@@ -138,16 +170,12 @@ const dropdownIcon = document.querySelector('.dropdown__select i');
 const dropdownItems = document.querySelector('.dropdown__content');
 
 const filterEl = document.getElementById('filter');
-const sortEl = document.getElementById('sort');
-
-const closeDropdown = function () {};
 
 dropdown.forEach((el) => {
 	el.addEventListener('click', () => el.classList.toggle('active'));
 });
 
 const regionItems = filterEl.querySelectorAll('.dropdown__content--item');
-const sortItems = sortEl.querySelectorAll('.dropdown__content--item');
 
 regionItems.forEach((item) => {
 	item.addEventListener('click', () => {
@@ -171,32 +199,6 @@ regionItems.forEach((item) => {
 	});
 });
 
-sortItems.forEach((item) => {
-	item.addEventListener('click', () => {
-		const value = item.innerText;
-		const dropdownText = sortEl.querySelector('.dropdown__select span');
-		const countryPopulation = document.querySelectorAll(
-			'.country-population span'
-		);
-
-		if (value === 'Show All') {
-			dropdownText.innerText = 'Sort by Population';
-		} else {
-			dropdownText.innerText = value;
-		}
-
-		countryPopulation.forEach((pop) => {
-			if (value === 'Show All') {
-				pop.parentElement.parentElement.parentElement.style.display = 'block';
-			} else if (value === 'Highest to Lowest') {
-				pop.parentElement.parentElement.parentElement.style.display = 'block';
-			} else {
-				pop.parentElement.parentElement.parentElement.style.display = 'none';
-			}
-		});
-	});
-});
-
 const letters = document.querySelector('.letters');
 const nameFilters = letters.querySelectorAll('li');
 
@@ -213,16 +215,4 @@ nameFilters.forEach((filter) => {
 			}
 		});
 	});
-});
-
-// SCROLL TO TOP BUTTON
-const scrollTopBtn = document.querySelector('.scrollToTop-btn');
-
-window.addEventListener('scroll', () => {
-	scrollTopBtn.classList.toggle('active', window.scrollY > 500);
-});
-
-scrollTopBtn.addEventListener('click', () => {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
 });

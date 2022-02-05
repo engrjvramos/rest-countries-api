@@ -4,6 +4,24 @@
 	}
 }
 
+@media only screen and (max-width: 900px) {
+	html {
+		font-size: 55.5%;
+	}
+
+	main {
+		.container {
+			.menu {
+				.search-container {
+					.search-box {
+						max-width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
 @media only screen and (max-width: 500px) {
 	html {
 		font-size: 52.5%;

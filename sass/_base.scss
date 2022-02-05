@@ -6,9 +6,10 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	transition: background 0.2s ease;
 }
 :root {
-	--color-primary: #226ffd;
+	--color-primary: #2ad482;
 	--color-primary-light: #f3eeff;
 
 	--dark-mode-elements: hsl(209, 23%, 22%);
@@ -25,6 +26,9 @@
 	--input-color: hsl(0, 0%, 52%);
 	--input-color-2: rgba(145, 145, 145, 0.1);
 
+	--line-color: #e8e8e8;
+	--line-color-2: #969696;
+
 	--box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
 }
 
@@ -36,10 +40,14 @@
 	--input-color: hsl(0, 0%, 100%);
 	--input-color-2: rgba(255, 255, 255, 0.35);
 	--box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
+
+	--line-color: #969696;
+	--line-color-2: #e8e8e8;
 }
 
 html {
 	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -60,9 +68,36 @@ li {
 
 a {
 	text-decoration: none;
+	color: var(--text-color);
+	display: inline-block;
 }
 
 .container {
 	max-width: 144rem;
 	margin: 0 auto;
+}
+
+.btn-primary {
+	font-family: inherit;
+	font-size: 1.6rem;
+	line-height: 1.2;
+	text-align: center;
+	width: 100%;
+	padding: 1rem 0;
+	margin: 1rem 0;
+	outline: none;
+	background: var(--header-background);
+	border: 2px solid var(--line-color);
+	box-shadow: 0 1rem 1rem -0.8rem #d5d5d5;
+	transition: all 0.3s;
+	cursor: pointer;
+
+	i {
+		margin-right: 8px;
+	}
+
+	&:hover {
+		background: var(--input-color-2);
+		border: 2px solid var(--input-color-2);
+	}
 }
