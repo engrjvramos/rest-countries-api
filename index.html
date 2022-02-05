@@ -15,8 +15,12 @@
 </head>
 
 <body>
+  <div class="scrollToTop-btn flex-center">
+    <i class='fas fa-arrow-up'></i>
+  </div>
+
   <header>
-    <div class="container">
+    <div class="container top-container">
       <div class="header-text">
         <h2>Where in the world?</h2>
       </div>
@@ -26,30 +30,79 @@
         <span class="theme-text"></span>
       </div>
     </div>
+
   </header>
 
   <main>
     <div class="container">
-      <div class="search-filter-container">
+      <div class="menu">
         <div class="search-container">
-          <input id="search" class="search" type="text" placeholder="Search for a country...">
-          <i class="fas fa-magnifying-glass"></i>
-        </div>
-        <div class="filter">
-          <span>Filter by Region</span>
-          <i class="fas fa-chevron-down"></i>
-          <div class="filter-items">
-            <ul>
-              <li>All</li>
-              <li>Africa</li>
-              <li>Americas</li>
-              <li>Asia</li>
-              <li>Europe</li>
-              <li>Oceania</li>
-            </ul>
+          <div class="search-box">
+            <input id="search" class="search" type="text" placeholder="Search for a country...">
+            <i class="fas fa-magnifying-glass"></i>
+          </div>
+          <div class="dropdown-container">
+            <div class="dropdown" id="filter">
+              <div class="dropdown__select">
+                <span>Filter by Region</span>
+                <i class="fas fa-caret-down"></i>
+              </div>
+              <div class="dropdown__content">
+                <div class="dropdown__content--item">Show All</div>
+                <div class="dropdown__content--item">Africa</div>
+                <div class="dropdown__content--item">Americas</div>
+                <div class="dropdown__content--item">Asia</div>
+                <div class="dropdown__content--item">Europe</div>
+                <div class="dropdown__content--item">Oceania</div>
+              </div>
+            </div>
+            <div class="dropdown" id="sort">
+              <div class="dropdown__select">
+                <span>Sort by Population</span>
+                <i class="fas fa-caret-down"></i>
+              </div>
+              <div class="dropdown__content">
+                <div class="dropdown__content--item">Show All</div>
+                <div class="dropdown__content--item">Highest to Lowest</div>
+                <div class="dropdown__content--item">Lowest to Highest</div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="letters">
+          <ul>
+            <li>All</li>
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li>D</li>
+            <li>E</li>
+            <li>F</li>
+            <li>G</li>
+            <li>H</li>
+            <li>I</li>
+            <li>J</li>
+            <li>K</li>
+            <li>L</li>
+            <li>M</li>
+            <li>N</li>
+            <li>O</li>
+            <li>P</li>
+            <li>Q</li>
+            <li>R</li>
+            <li>S</li>
+            <li>T</li>
+            <li>U</li>
+            <li>V</li>
+            <li>W</li>
+            <li>X</li>
+            <li>Y</li>
+            <li>Z</li>
+          </ul>
+        </div>
+
       </div>
+
       <div class="countries-container" id="countries">
         <h2>Countries loading ...</h2>
 
@@ -59,16 +112,14 @@
 
     <div class="modal" id="modal">
       <div class="modal__container">
-        <button class="btn-close"><i class="fas fa-arrow-left"></i>Back</button>
+        <div class="button-container">
+          <button class="btn-close"><i class="fas fa-arrow-left"></i>Back</button>
+        </div>
         <div class="content">
           <div class="content__flag">
-            <img src="https://flagcdn.com/de.svg" alt="">
+            <img src="" alt="">
           </div>
           <div class="content__details">
-            <h1 class="country-name">${country.name}</h1>
-            <h4 class="population">Population: <span>${country.population}</span></h4>
-            <h4 class="country-region">Region: <span>${country.region}</span></h4>
-            <h4 class="capital">Capital: <span>${country.capital}</span></h4>
           </div>
         </div>
       </div>

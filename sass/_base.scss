@@ -8,6 +8,9 @@
 	box-sizing: border-box;
 }
 :root {
+	--color-primary: #226ffd;
+	--color-primary-light: #f3eeff;
+
 	--dark-mode-elements: hsl(209, 23%, 22%);
 	--dark-mode-background: hsl(207, 26%, 17%);
 	--light-mode-text: hsl(200, 15%, 8%);
@@ -20,8 +23,9 @@
 	--text-color: hsl(200, 15%, 8%);
 	--text-color-2: hsl(0, 0%, 100%);
 	--input-color: hsl(0, 0%, 52%);
+	--input-color-2: rgba(145, 145, 145, 0.1);
 
-	--box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+	--box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
 }
 
 .dark-theme {
@@ -30,6 +34,8 @@
 	--text-color: hsl(0, 0%, 100%);
 	--text-color-2: hsl(200, 15%, 8%);
 	--input-color: hsl(0, 0%, 100%);
+	--input-color-2: rgba(255, 255, 255, 0.35);
+	--box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
 }
 
 html {
@@ -42,8 +48,6 @@ body {
 	min-height: 100vh;
 	background: var(--body-background);
 	color: var(--text-color);
-	display: flex;
-	flex-direction: column;
 }
 
 img {
@@ -60,8 +64,5 @@ a {
 
 .container {
 	max-width: 144rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	margin: 0 auto;
 }
