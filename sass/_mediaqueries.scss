@@ -33,6 +33,12 @@
 				grid-template-columns: repeat(auto-fit, 46rem);
 			}
 		}
+
+		.modal {
+			&__container {
+				grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+			}
+		}
 	}
 }
 
@@ -45,12 +51,6 @@
 		.container {
 			.countries-container {
 				grid-template-columns: repeat(auto-fit, 36rem);
-			}
-		}
-
-		.modal {
-			&__container {
-				grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
 			}
 		}
 	}
