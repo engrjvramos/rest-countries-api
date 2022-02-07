@@ -9,7 +9,7 @@
 	transition: background 0.2s ease;
 }
 :root {
-	--color-primary: #2ad482;
+	--color-primary: #28a769;
 	--color-primary-light: #f3eeff;
 
 	--dark-mode-elements: hsl(209, 23%, 22%);
@@ -25,7 +25,7 @@
 	--text-color-2: hsl(0, 0%, 100%);
 	--input-color: hsl(0, 0%, 52%);
 	--input-color-2: rgba(145, 145, 145, 0.1);
-
+	--flag-background: #e8e8e89a;
 	--line-color: #e8e8e8;
 	--line-color-2: #969696;
 
@@ -33,6 +33,7 @@
 }
 
 .dark-theme {
+	--color-primary: #2ad482;
 	--body-background: hsl(207, 26%, 17%);
 	--header-background: hsl(209, 23%, 22%);
 	--text-color: hsl(0, 0%, 100%);
@@ -40,7 +41,7 @@
 	--input-color: hsl(0, 0%, 100%);
 	--input-color-2: rgba(255, 255, 255, 0.35);
 	--box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.1);
-
+	--flag-background: #3b3b3b;
 	--line-color: #969696;
 	--line-color-2: #e8e8e8;
 }
@@ -51,6 +52,7 @@ html {
 }
 
 body {
+	position: relative;
 	font-family: 'Nunito Sans', sans-serif;
 	font-size: 1.6rem;
 	min-height: 100vh;

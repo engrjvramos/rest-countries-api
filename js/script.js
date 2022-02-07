@@ -40,14 +40,18 @@ themeBtn.addEventListener('click', () => {
 	localStorage.setItem('saved-icon', getCurrentIcon());
 });
 
-// SPINNER
+// LOADER
 const loading = document.getElementById('loading');
 const loadingContainer = document.querySelector('.loading-container');
+const menu = document.querySelector('.menu');
+const footer = document.querySelector('footer');
 
 function showPage() {
 	loading.style.display = 'none';
 	loadingContainer.style.display = 'none';
 	countriesEl.style.display = 'grid';
+	menu.style.display = 'block';
+	footer.style.display = 'block';
 }
 
 setTimeout(showPage, 5000);
@@ -58,15 +62,173 @@ const countriesEl = document.getElementById('countries');
 const modal = document.getElementById('modal');
 const closeBtn = document.querySelector('.close');
 const header = document.getElementById('header');
-
-getCountries();
+const url = 'https://restcountries.com/v3.1/all';
 
 async function getCountries() {
-	const res = await fetch('https://restcountries.com/v2/all');
+	const res = await fetch(url);
 	const countries = await res.json();
 
 	displayCountries(countries);
 }
+
+getCountries();
+
+function displayCountries(countries) {
+	countriesEl.innerHTML = '';
+
+	countries.forEach((country) => {
+		const countryEl = document.createElement('div');
+		const population = country.population.toLocaleString();
+
+		countryEl.classList.add('card');
+		countryEl.innerHTML = `
+        <div class="card__flag">
+          <img src="${country.flags.svg}" alt="">
+        </div>
+        <div class="card__details">
+          <h2 class="country-name">${country.name.common}</h2>
+          <p class="country-population">Population: <span>${population}</span></p>
+          <p class="country-region">Region: <span>${country.region}</span></p>
+          <p class="capital">Capital: <span>${
+						country.capital ? country.capital : 'None'
+					}</span></p>
+        </div>
+      `;
+
+		countryEl.addEventListener('click', () => {
+			modal.style.display = 'block';
+			navbar.style.display = 'none';
+			document.body.style.overflow = 'hidden';
+			showCountryDetails(country);
+		});
+
+		countriesEl.appendChild(countryEl);
+	});
+}
+
+function showCountryDetails(country) {
+	const modalBody = modal.querySelector('.content__details');
+	const modalFlag = modal.querySelector('.flag img');
+
+	const countryName = country.name.common;
+	const officialName = country.name.official;
+	const nativeName = country.name.nativeName[
+		Object.keys(country.name.nativeName)[1]
+	]
+		? country.name.nativeName[Object.keys(country.name.nativeName)[1]].common
+		: country.name.nativeName[Object.keys(country.name.nativeName)[0]].common;
+	const population = country.population.toLocaleString();
+	const region = country.region;
+	const subRegion = country.subregion;
+	const areaKM = country.area.toLocaleString();
+	const areaMI = Number((country.area / 2.59).toFixed()).toLocaleString();
+	const capitalCity = country.capital ? country.capital : 'No Capital';
+	const tld = country.tld[0];
+	const currencyName = country.currencies[Object.keys(country.currencies)].name;
+	const currencyID = Object.keys(country.currencies);
+	const languages = Object.values(country.languages).join(', ');
+	const timeZone = country.timezones;
+	const drivingSide =
+		country.car.side === 'left'
+			? 'Drive on the Left-hand side'
+			: 'Drive on the Right-hand side';
+	const countryCode = country.idd.root + country.idd.suffixes;
+	const demonyms = country.demonyms.eng.f;
+
+	modalFlag.src = country.flags.svg;
+
+	modalBody.innerHTML = `
+  <h1>${countryName}</h1>
+
+  <div class="details-container">
+      <div class="item">
+				<i class="fas fa-flag"></i>
+				<h4 class="label">Official Name:</h4>
+				<p class="value">${officialName}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-flag"></i>
+				<h4 class="label">Native Name:</h4>
+				<p class="value">${nativeName}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-users"></i>
+				<h4 class="label">Population:</h4>
+				<p class="value">${population}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-globe-americas"></i>
+				<h4 class="label">Region:</h4>
+				<p class="value">${region}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-globe-asia"></i>
+				<h4 class="label">Sub-Region:</h4>
+				<p class="value">${subRegion}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-chart-area"></i>
+				<h4 class="label">Total Area:</h4>
+				<p class="value">${areaKM} km<sup>2</sup> (${areaMI} mi<sup>2</sup>)</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-monument"></i>
+				<h4 class="label">Capital City:</h4>
+				<p class="value">${capitalCity}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-server"></i>
+				<h4 class="label">Top Level Domain:</h4>
+				<p class="value">${tld}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-dollar-sign"></i>
+				<h4 class="label">Currency:</h4>
+				<p class="value">${currencyName} (${currencyID})</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-language"></i>
+				<h4 class="label">Languages:</h4>
+				<p class="value">${languages}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-clock"></i>
+				<h4 class="label">Timezone:</h4>
+				<p class="value">${timeZone}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-car"></i>
+				<h4 class="label">Driving Side:</h4>
+				<p class="value">${drivingSide}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-phone"></i>
+				<h4 class="label">Country Code:</h4>
+				<p class="value">${countryCode}</p>
+			</div>
+      <div class="item">
+				<i class="fas fa-male"></i>
+				<h4 class="label">Demonyms:</h4>
+				<p class="value">${demonyms}</p>
+			</div>
+    </div>  
+  </div>
+    `;
+}
+
+closeBtn.addEventListener('click', () => {
+	modal.style.display = 'none';
+	navbar.style.display = 'flex';
+	document.body.style.overflow = 'visible';
+});
+
+document.addEventListener('keydown', (e) => {
+	if (e.key === 'Escape') {
+		modal.style.display = 'none';
+		navbar.style.display = 'flex';
+		document.body.style.overflow = 'visible';
+	}
+});
 
 const searchEl = document.getElementById('search');
 
@@ -81,94 +243,6 @@ searchEl.addEventListener('input', (e) => {
 			name.parentElement.parentElement.style.display = 'none';
 		}
 	});
-});
-
-function displayCountries(countries) {
-	countriesEl.innerHTML = '';
-	// console.log(Object.values(countries));
-
-	countries.forEach((country) => {
-		const countryEl = document.createElement('div');
-		const population = country.population.toLocaleString();
-
-		countryEl.classList.add('card');
-		countryEl.innerHTML = `
-        <div class="card__flag">
-          <img src="${country.flag}" alt="">
-        </div>
-        <div class="card__details">
-          <h2 class="country-name">${country.name}</h2>
-          <p class="country-population">Population: <span>${population}</span></p>
-          <p class="country-region">Region: <span>${country.region}</span></p>
-          <p class="capital">Capital: <span>${country.capital}</span></p>
-        </div>
-      `;
-
-		countryEl.addEventListener('click', () => {
-			modal.style.display = 'block';
-			navbar.style.display = 'none';
-			header.style.position = 'fixed';
-			document.body.style.overflow = 'hidden';
-			showCountryDetails(country);
-		});
-
-		countriesEl.appendChild(countryEl);
-	});
-}
-
-function showCountryDetails(country) {
-	const modalBody = modal.querySelector('.content__details');
-	const modalImage = modal.querySelector('.content__flag img');
-	const population = country.population.toLocaleString();
-
-	const map = L.map('map').setView(country.latlng, 4);
-
-	L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-		attribution:
-			'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-	}).addTo(map);
-
-	L.marker(country.latlng).addTo(map).bindPopup(`${country.name}`).openPopup();
-
-	modalImage.src = country.flag;
-
-	modalBody.innerHTML = `
-  <h1>${country.name}</h1>
-  <div class="details-container">
-    <div class="details-container__left">
-      <p>Native Name: <span>${country.nativeName}</span></p>
-      <p>Population: <span>${population}</span></p>
-      <p>Region: <span>${country.region}</span></p>
-      <p>Sub-Region: <span>${country.subregion}</span></p>
-      <p>Capital: <span>${country.capital}</span></p>
-    </div>
-    <div class="details-container__right">
-      <p>Top Level Domain: <span>${country.topLevelDomain[0]}</span></p>
-      <p>Currencies: <span>${country.currencies
-				.map((currency) => currency.name)
-				.join(', ')}</span></p>
-      <p>Languages: <span>${country.languages
-				.map((language) => language.name)
-				.join(', ')}</span></p>
-    </div>
-  </div>
-    `;
-}
-
-closeBtn.addEventListener('click', () => {
-	modal.style.display = 'none';
-	navbar.style.display = 'flex';
-	header.style.position = 'static';
-	document.body.style.overflow = 'visible';
-});
-
-document.addEventListener('keydown', (e) => {
-	if (e.key === 'Escape') {
-		modal.style.display = 'none';
-		navbar.style.display = 'flex';
-		header.style.position = 'static';
-		document.body.style.overflow = 'visible';
-	}
 });
 
 const dropdown = document.querySelector('.dropdown');
@@ -210,6 +284,9 @@ nameFilters.forEach((filter) => {
 	filter.addEventListener('click', (e) => {
 		const value = filter.innerText;
 		const countryName = document.querySelectorAll('.country-name');
+		const count = document.getElementsByTagName('.country-name').length;
+
+		console.log(count);
 
 		countryName.forEach((country) => {
 			if (country.innerText.charAt(0) === value || value === 'All') {
