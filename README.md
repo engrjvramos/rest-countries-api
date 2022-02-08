@@ -58,8 +58,9 @@ This project greatly improved my skills in RESTful APIs, JavaScript & CSS Grid.
 
 I would like to add some extra features to this project in the near future. The following items below are some of my ideas that would make the project better!
 
-1. Add a SORT DROPDOWN MENU to sort countries by population, land mass and name (A to Z).
+1. Add a SORT DROPDOWN MENU to sort countries by population (highest to lowest), total area (highest to lowest) and name (A to Z).
 2. Add a LIVE MAP to show the location of each country.
+3. Add BORDER COUNTRIES and click through to show its details.
 
 ## Author
 
