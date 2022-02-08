@@ -1,3 +1,4 @@
+////////////////////////////////////////////////////////
 // SCROLL TO TOP BUTTON
 const scrollTopBtn = document.querySelector('.scrollToTop-btn');
 const navbar = document.getElementById('navbar');
@@ -13,6 +14,7 @@ scrollTopBtn.addEventListener('click', () => {
 	document.documentElement.scrollTop = 0;
 });
 
+////////////////////////////////////////////////////////
 // DARK & LIGHT MODE
 const themeBtn = document.querySelector('.theme-btn');
 const themeBtnText = document.querySelector('.theme-text');
@@ -40,11 +42,18 @@ themeBtn.addEventListener('click', () => {
 	localStorage.setItem('saved-icon', getCurrentIcon());
 });
 
+////////////////////////////////////////////////////////
 // LOADER
 const loading = document.getElementById('loading');
 const loadingContainer = document.querySelector('.loading-container');
 const menu = document.querySelector('.menu');
 const footer = document.querySelector('footer');
+
+const countriesEl = document.getElementById('countries');
+const modal = document.getElementById('modal');
+const closeBtn = document.querySelector('.close');
+const header = document.getElementById('header');
+const url = 'https://restcountries.com/v3.1/all';
 
 function showPage() {
 	loading.style.display = 'none';
@@ -56,14 +65,8 @@ function showPage() {
 
 setTimeout(showPage, 5000);
 
+////////////////////////////////////////////////////////
 //API CALL
-
-const countriesEl = document.getElementById('countries');
-const modal = document.getElementById('modal');
-const closeBtn = document.querySelector('.close');
-const header = document.getElementById('header');
-const url = 'https://restcountries.com/v3.1/all';
-
 async function getCountries() {
 	const res = await fetch(url);
 	const countries = await res.json();
@@ -78,20 +81,22 @@ function displayCountries(countries) {
 
 	countries.forEach((country) => {
 		const countryEl = document.createElement('div');
+		const flag = country.flags.svg;
+		const countryName = country.name.common;
 		const population = country.population.toLocaleString();
+		const region = country.region;
+		const capitalCity = country.capital ? country.capital : 'No Capital';
 
 		countryEl.classList.add('card');
 		countryEl.innerHTML = `
         <div class="card__flag">
-          <img src="${country.flags.svg}" alt="">
+          <img src="${flag}" alt="">
         </div>
         <div class="card__details">
-          <h2 class="country-name">${country.name.common}</h2>
+          <h2 class="country-name">${countryName}</h2>
           <p class="country-population">Population: <span>${population}</span></p>
-          <p class="country-region">Region: <span>${country.region}</span></p>
-          <p class="capital">Capital: <span>${
-						country.capital ? country.capital : 'None'
-					}</span></p>
+          <p class="country-region">Region: <span>${region}</span></p>
+          <p class="capital">Capital: <span>${capitalCity}</span></p>
         </div>
       `;
 
@@ -109,7 +114,6 @@ function displayCountries(countries) {
 function showCountryDetails(country) {
 	const modalBody = modal.querySelector('.content__details');
 	const modalFlag = modal.querySelector('.flag img');
-
 	const countryName = country.name.common;
 	const officialName = country.name.official;
 	const nativeName = country.name.nativeName[
@@ -127,7 +131,7 @@ function showCountryDetails(country) {
 	const currencyName = country.currencies[Object.keys(country.currencies)].name;
 	const currencyID = Object.keys(country.currencies);
 	const languages = Object.values(country.languages).join(', ');
-	const timeZone = country.timezones;
+	const timeZone = country.timezones[0];
 	const drivingSide =
 		country.car.side === 'left'
 			? 'Drive on the Left-hand side'
@@ -230,6 +234,8 @@ document.addEventListener('keydown', (e) => {
 	}
 });
 
+////////////////////////////////////////////////////////
+// SEARCH FUNCTIONALITY
 const searchEl = document.getElementById('search');
 
 searchEl.addEventListener('input', (e) => {
@@ -245,6 +251,8 @@ searchEl.addEventListener('input', (e) => {
 	});
 });
 
+////////////////////////////////////////////////////////
+// DROPDOWN FILTER FUNCTIONALITY
 const dropdown = document.querySelector('.dropdown');
 const dropdownIcon = document.querySelector('.dropdown__select i');
 const dropdownItems = document.querySelector('.dropdown__content');
@@ -277,6 +285,8 @@ regionItems.forEach((item) => {
 	});
 });
 
+///////////////////////////////////////////////////////
+// LETTERS FILTER FUNCTIONALITY
 const letters = document.querySelector('.letters');
 const nameFilters = letters.querySelectorAll('li');
 

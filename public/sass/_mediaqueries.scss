@@ -53,5 +53,49 @@
 				grid-template-columns: repeat(auto-fit, 36rem);
 			}
 		}
+
+		.modal {
+			&__container {
+				grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+			}
+
+			.content__details {
+				h1 {
+					font-size: 3.5rem;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 300px) {
+	html {
+		font-size: 52.5%;
+	}
+
+	header {
+		padding: 2rem;
+	}
+
+	main {
+		padding: 3rem 2rem;
+
+		.container {
+			.countries-container {
+				grid-template-columns: repeat(auto-fit, 28rem);
+			}
+		}
+
+		.modal {
+			&__container {
+				grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+			}
+
+			.content__details {
+				h1 {
+					font-size: 3.5rem;
+				}
+			}
+		}
 	}
 }

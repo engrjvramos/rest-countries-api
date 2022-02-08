@@ -11,14 +11,6 @@
 :root {
 	--color-primary: #28a769;
 	--color-primary-light: #f3eeff;
-
-	--dark-mode-elements: hsl(209, 23%, 22%);
-	--dark-mode-background: hsl(207, 26%, 17%);
-	--light-mode-text: hsl(200, 15%, 8%);
-	--light-mode-input: hsl(0, 0%, 52%);
-	--light-mode-background: hsl(0, 0%, 98%);
-	--white: hsl(0, 0%, 100%); //Dark Mode Text & Light Mode Elements
-
 	--body-background: hsl(0, 0%, 98%);
 	--header-background: hsl(0, 0%, 100%);
 	--text-color: hsl(200, 15%, 8%);
@@ -28,7 +20,6 @@
 	--flag-background: #e8e8e89a;
 	--line-color: #e8e8e8;
 	--line-color-2: #969696;
-
 	--box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
 }
 

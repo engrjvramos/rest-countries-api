@@ -5,28 +5,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>REST Countries API</title>
+  <title>REST Countries API | Frontend Mentor Challenge</title>
 
   <!--======= FONT AWESOME =======-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
+  <!--======= FAVICON =======-->
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+
   <!--======= CSS =======-->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 
   <!--======= JS =======-->
-  <script defer src="js/script.js"></script>
+  <script defer src="./js/script.js"></script>
 </head>
 
 <body>
+
+  <!--========== COMPONENTS ==========-->
   <div class="loading-container">
     <div class="loading" id="loading"></div>
-    <h2>Loading Countries...</h2>
+    <h2>Loading Countries</h2>
   </div>
 
   <div class="scrollToTop-btn">
     <i class='fas fa-arrow-up'></i>
   </div>
 
+  <!--========== HEADER ==========-->
   <header id="header">
     <div class="container top-container">
       <div class="header-text">
@@ -41,9 +47,11 @@
 
   </header>
 
+  <!--========== MAIN CONTENT ==========-->
   <main>
     <div class="container">
 
+      <!--========== MENU ==========-->
       <div class="menu">
         <div class="search-container" id="navbar">
           <div class="search-box">
@@ -100,43 +108,31 @@
         </div>
       </div>
 
-
-
+      <!--========== COUNTRIES ==========-->
       <div class="countries-container" id="countries">
-
       </div>
-
     </div>
 
+    <!--========== MODAL ==========-->
     <div class="modal" id="modal">
       <div class="modal__container">
-
-
-
         <div class="flag">
           <button class="btn-primary close"><i class="fas fa-arrow-left"></i>Back</button>
           <img src="" alt="">
         </div>
-
-
-
-
-
         <div class="content__details">
         </div>
-
       </div>
     </div>
-
   </main>
 
+  <!--========== FOOTER ==========-->
   <footer>
     <div class="container">
       <p>Challenge by <a href="https://www.frontendmentor.io/challenges" target="_blank">Frontend Mentor</a> | Coded &
         customized by <a href="#">Jose Ramos</a></p>
     </div>
   </footer>
-
 </body>
 
 </html>
