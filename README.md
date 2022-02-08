@@ -2,17 +2,7 @@
 
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). 
 
-## Table of contents
-
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-- [Author](#author)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## Overview
 
@@ -37,22 +27,39 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/engrjvramos/rest-countries-api)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+
 
 ## My Process
 
 ### Built with
 
-- Semantic HTML5 markup
-- Sass / SCSS
-- Flexbox
-- CSS Grid
-- Desktop-first workflow
-- Vanilla JavaScript
+| Technology |
+| ---------- |
+| HTML       |
+| SCSS       |
+| JavaScript |
+| API        |
 
-### What I learned
+### Features
 
-This project greatly improved my skills in RESTful APIs, JavaScript & CSS Grid.
+| Function               | Description                                                  |
+| :--------------------- | :----------------------------------------------------------- |
+| Light & Dark Theme     | User can toggle the color scheme between light and dark mode. |
+| Sticky Navbar          | Navbar becomes sticky when user scrolls down.                |
+| Scroll To Top Button   | User can scroll to the top of page immediately.              |
+| CSS Loader             | A loading animation is shown when fetching data from the api. |
+| Search                 | User can search any country using the search bar.            |
+| Filter by Region       | User can filter countries by region (Africa, Americas, Europe, Asia, Oceania) using the dropdown menu. |
+| Filter by First Letter | User can filter countries by first letter of country name by clicking the designated letter of their choice. |
+
+### Resources
+
+| Tools          | Description         | Link                       |
+| :------------- | :------------------ | :------------------------- |
+| Font Awesome   | Icon elements       | https://fontawesome.com/   |
+| Google Fonts   | Font Family         | https://fonts.google.com/  |
+| REST Countries | Country details api | https://restcountries.com/ |
+
 
 ### Continued development
 
