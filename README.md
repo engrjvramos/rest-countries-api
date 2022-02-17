@@ -19,10 +19,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](/public/img/screenshot-01.png)
-![](/public/img/screenshot-02.png)
-![](/public/img/screenshot-03.png)
-![](/public/img/screenshot-04.png)
+![](./preview.jpg)
+
 
 ## My Process
 
@@ -32,23 +30,20 @@ Users should be able to:
 
 ### Features
 
-| Function               | Description                                                  |
-| :--------------------- | :----------------------------------------------------------- |
-| Light & Dark Theme     | User can toggle the color scheme between light and dark mode. |
-| Sticky Navbar          | Navbar becomes sticky when user scrolls down.                |
-| Scroll To Top Button   | User can scroll to the top of page immediately.              |
-| CSS Loader             | A loading animation is shown when fetching data from the api. |
-| Search                 | User can search any country using the search bar.            |
-| Filter by Region       | User can filter countries by region (Africa, Americas, Europe, Asia, Oceania) using the dropdown menu. |
-| Filter by First Letter | User can filter countries by first letter of country name by clicking the designated letter of their choice. |
+| Function               | Description                                                                |
+| :--------------------- | :------------------------------------------------------------------------- |
+| Hamburger Menu         | Responsive & functional menu appears on tablet & mobile screens.           |
+| Custom Form Validator  | An error message is shown if user submits the form with mistakes.          |
+| Design Layouts         | Includes custom layouts for desktop, tablet and mobile screens.            |
+
 
 ### Resources
 
-| Tools          | Description         | Link                       |
-| :------------- | :------------------ | :------------------------- |
-| Font Awesome   | Icon elements       | https://fontawesome.com/   |
-| Google Fonts   | Font Family         | https://fonts.google.com/  |
-| REST Countries | Country details api | https://restcountries.com/ |
+| Tools             | Description                     | Link                       |
+| :---------------- | :----------------------         | :------------------------- |
+| Frontend Mentor   | Images & Figma design file      | https://frontendmentor.io/ |
+| Google Fonts      | Font Family                     | https://fonts.google.com/  |
+| REST Countries    | Country details api             | https://restcountries.com/ |
 
 
 ## Author
