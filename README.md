@@ -1,8 +1,8 @@
-# PayAPI Multi-Page Website | Frontend Mentor
+# World Countries | Frontend Mentor
 
-This is a solution to the [PayAPI multi-page website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/payapi-multipage-website-FDLR1Y11e). 
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). 
 
-[PREVIEW LIVE](https://engrjvramos.github.io/payapi-multipage-website/)
+[PREVIEW LIVE](https://engrjvramos.github.io/rest-countries-api/)
 
 ## Overview
 
@@ -10,16 +10,19 @@ This is a solution to the [PayAPI multi-page website challenge on Frontend Mento
 
 Users should be able to:
 
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements throughout the site
-- Receive an error message when the contact form is submitted if:
-- The Name, Email Address or Message fields are empty should show "This field can't be empty"
-- The Email Address is not formatted correctly should show "Please use a valid email address"
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click through to the border countries on the detail page
+- Toggle the color scheme between light and dark mode _(optional)_
 
 ### Screenshot
 
-![](./preview.jpg)
-
+![](/public/img/screenshot-01.png)
+![](/public/img/screenshot-02.png)
+![](/public/img/screenshot-03.png)
+![](/public/img/screenshot-04.png)
 
 ## My Process
 
@@ -29,20 +32,23 @@ Users should be able to:
 
 ### Features
 
-| Function               | Description                                                                |
-| :--------------------- | :------------------------------------------------------------------------- |
-| Hamburger Menu         | Responsive & functional menu appears on tablet & mobile screens.           |
-| Custom Form Validator  | An error message is shown if user submits the form with mistakes.          |
-| Design Layouts         | Includes custom layouts for desktop, tablet and mobile screens.            |
-
+| Function               | Description                                                  |
+| :--------------------- | :----------------------------------------------------------- |
+| Light & Dark Theme     | User can toggle the color scheme between light and dark mode. |
+| Sticky Navbar          | Navbar becomes sticky when user scrolls down.                |
+| Scroll To Top Button   | User can scroll to the top of page immediately.              |
+| CSS Loader             | A loading animation is shown when fetching data from the api. |
+| Search                 | User can search any country using the search bar.            |
+| Filter by Region       | User can filter countries by region (Africa, Americas, Europe, Asia, Oceania) using the dropdown menu. |
+| Filter by First Letter | User can filter countries by first letter of country name by clicking the designated letter of their choice. |
 
 ### Resources
 
-| Tools             | Description                     | Link                       |
-| :---------------- | :----------------------         | :------------------------- |
-| Frontend Mentor   | Images & Figma design file      | https://frontendmentor.io/ |
-| Google Fonts      | Font Family                     | https://fonts.google.com/  |
-| REST Countries    | Country details api             | https://restcountries.com/ |
+| Tools          | Description         | Link                       |
+| :------------- | :------------------ | :------------------------- |
+| Font Awesome   | Icon elements       | https://fontawesome.com/   |
+| Google Fonts   | Font Family         | https://fonts.google.com/  |
+| REST Countries | Country details api | https://restcountries.com/ |
 
 
 ## Author
