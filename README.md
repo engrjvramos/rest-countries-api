@@ -1,8 +1,8 @@
-# REST Countries API | Frontend Mentor
+# World Countries | Frontend Mentor
 
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). 
 
-[View Live Demo](https://engrjvramos.github.io/rest-countries-api/)
+[PREVIEW LIVE](https://engrjvramos.github.io/rest-countries-api/)
 
 ## Overview
 
@@ -51,16 +51,8 @@ Users should be able to:
 | REST Countries | Country details api | https://restcountries.com/ |
 
 
-### Continued development
-
-I would like to add some extra features to this project in the near future. The following items below are some of my ideas that would make the project better!
-
-1. Add a SORT DROPDOWN MENU to sort countries by population (highest to lowest), total area (highest to lowest) and name (A to Z).
-2. Add a LIVE MAP to show the location of each country.
-3. Add BORDER COUNTRIES and click through to show its details.
-
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Github - [@engrjvramos](https://github.com/engrjvramos)
-- LinkedIn - [@yourusername](https://www.linkedin.com/in/jose-roberto-ramos-7702b1131/)
+- [Website](https://engrjvramos.github.io/personal-website-v1)
+- [Github](https://github.com/engrjvramos)
+- [LinkedIn](https://www.linkedin.com/in/jose-roberto-ramos-7702b1131/)
