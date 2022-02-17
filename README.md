@@ -1,8 +1,8 @@
 # PayAPI Multi-Page Website | Frontend Mentor
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). 
+This is a solution to the [PayAPI multi-page website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/payapi-multipage-website-FDLR1Y11e). 
 
-[PREVIEW LIVE](https://engrjvramos.github.io/rest-countries-api/)
+[PREVIEW LIVE](https://engrjvramos.github.io/payapi-multipage-website/)
 
 ## Overview
 
@@ -10,12 +10,11 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 Users should be able to:
 
-- See all countries from the API on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode _(optional)_
+- View the optimal layout for each page depending on their device's screen size
+- See hover states for all interactive elements throughout the site
+- Receive an error message when the contact form is submitted if:
+- The Name, Email Address or Message fields are empty should show "This field can't be empty"
+- The Email Address is not formatted correctly should show "Please use a valid email address"
 
 ### Screenshot
 
